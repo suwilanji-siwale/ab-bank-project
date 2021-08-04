@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="suwilanji">
+
+    <!--CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.scrollbar.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/AB-Bank-Favicon.png">
+
+    <title>AB BANK - suwilanji submission</title> 
+
+</head>
+
+<style>
+    #map{
+      height:550px;
+      width:100%;
+    }
+  </style>
+
+<body>
+
+<!-- WRAPPER
+=====================================================================================================================-->
+<div class="ts-page-wrapper ts-homepage ts-full-screen-page" id="page-top">
+
+    <!--*********************************************************************************************************-->
+    <!--HEADER **************************************************************************************************-->
+    <!--*********************************************************************************************************-->
+    <header id="ts-header" class="navbar-dark">
+        
+
+        <!--PRIMARY NAVIGATION
+        =============================================================================================================-->
+        <nav id="ts-primary-navigation" class="navbar navbar-expand-md navbar-light">
+            <div class="container">
+
+                <!--Brand Logo-->
+                <a class="navbar-brand" href="index-map-leaflet-fullscreen.html">
+                    <img src="assets/img/logo-w.png" alt=""> 
+                </a>
+
+                </div>
+           </nav>
+
+    </header>
+    <!--end Header-->
+
+    <!-- HERO MAP
+    =================================================================================================================-->
+    <section id="ts-hero" class=" mb-0">
+
+        <!--Fullscreen mode-->
+        <div class="ts-full-screen d-flex flex-column">
+
+            <!-- FORM
+            =========================================================================================================-->
+            <section class="ts-shadow__sm ts-z-index__2 ts-bg-light">
+
+                
+
+            </section>
+            <!--end ts-form__grid-->
+
+            <!-- RESULTS & MAP
+            =========================================================================================================-->
+            <div class="d-flex h-100">
+
+                <!-- RESULTS LEFT
+                =====================================================================================================-->
+                <div class="ts-results__vertical ts-results__vertical-list ts-shadow__sm scrollbar-inner bg-white">
+
+                    <!--Results wrapper-->
+                    <section id="ts-results">
+                        <div class="ts-results-wrapper">
+
+                            <!--Keyword-->
+                        <div class="form-group m-1 w-100">
+                            <input type="text" class="form-control" id="keyword" name="keyword" placeholder="Enter your city">
+                        </div>
+                            
+                            <!--Submit button-->
+                        <div class="form-group p-5 m-1 w-100">
+                            <button type="submit" class="btn btn-primary" id="search-btn">Search Now</button>
+                        </div>
+
+                        </div>
+
+                        
+                    </section>
+
+                </div>
+                <!--end ts-results-vertical-->
+
+                <!-- MAP
+                =====================================================================================================-->
+                
+
+                <div id="map"></div>
+
+            </div>
+            <!--end d-flex h-100-->
+
+        </div>
+        <!--end full-screen-->
+
+    </section>
+    <!--end ts-hero-->
+
+</div>
+<!--end page-->
+
+
+<script>
+
+    //initialize the map
+  
+    function initMap(){
+
+      var infoObj = [];
+      
+      // Map options
+      var options = {
+        //zoom level
+        zoom:12,
+
+        //set centre location as lusaka
+        center:{lat:-15.38467947520081,lng:28.319023070229935}
+      }
+
+      //detailed information
+
+      const gardenString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Garden Branch</h1>' +
+    '<div id="bodyContent">' +
+    "<p>Katimamulilo Road, Opposite Zambeef Garden, Lusaka " +
+    "Telephone: +260 211 239779 or +260 211 239782 or +260 211 239783" +
+    
+    "</p>" +
+    
+    "</div>" +
+    "</div>";
+
+    const cairoString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Cairo Branch</h1>' +
+    '<div id="bodyContent">' +
+    "<p>7393 Chainda Place Off Cairo Road, Town Center, Lusaka " +
+    "Telephone: Telephone: +260 211 220836 or +260 211 220838" +
+    
+    "</p>" +
+    
+    "</div>" +
+    "</div>";
+
+    const chilenjeString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Chilenje Branch</h1>' +
+    '<div id="bodyContent">' +
+    "<p>Base Building Chilenje Shopping Mall, Muramba Road, Chilenje South, Lusaka " +
+    "Telephone: +260 211 267706 or +260 211 267707" +
+    
+    "</p>" +
+    
+    "</div>" +
+    "</div>";
+
+    const materoString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Matero Branch</h1>' +
+    '<div id="bodyContent">' +
+    "<p>B and J Building after Post Office, Commonwealth Road, Matero, Lusaka" +
+    "Telephone: +260 211 244647 or +260 211 244649" +
+    
+    "</p>" +
+    
+    "</div>" +
+    "</div>";
+
+    const kalingalingaString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">kalingalinga Branch</h1>' +
+    '<div id="bodyContent">' +
+    "<p>Alick Nkhata Road after Friday’s Corner, Kalingalinga, Lusaka" +
+    "Telephone: +260 211 267988 or +260 211 267989 or +260 211 267990" +
+    
+    "</p>" +
+    
+    "</div>" +
+    "</div>";
+
+    const chelstonString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Chelstone Branch</h1>' +
+    '<div id="bodyContent">' +
+    "<p>Chelston Bazzar Complex next to Post Office, Chelston, Lusaka" +
+    "Telephone: +260 211 285811 or +260 211 285812" +
+    
+    "</p>" +
+    
+    "</div>" +
+    "</div>";
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Listen for click on map
+      /*google.maps.event.addListener(map, 'click', function(event){
+        // Add marker
+        addMarker({coords:event.latLng});
+      });*/
+
+    
+
+      // Array of markers of AB Bank Branches
+      var markers = [
+
+      
+       /* {
+          coords:{lat:-12.817265893690553,lng:28.2080915},
+          content:'<h3>Kitwe Branch</h3>'
+
+        },*/
+        {
+          coords:{lat:-15.422742413178566,lng:28.283531215341277},
+          content: cairoString
+
+        },
+        {
+          coords:{lat:-15.448840067553531 ,lng:28.33658573068255},
+          content: chilenjeString
+        },
+        {
+          coords:{lat:-15.381609452545668,lng:28.262005557670637},
+          content: materoString
+        },
+        {
+          coords:{lat:-15.40791907751261,lng:28.34563481349404},
+          content: kalingalingaString
+        },
+        {
+          coords:{lat:-15.373697597299058,lng:28.383023115341274},
+          content: chelstonString
+        },
+        {
+          coords:{lat:-15.389318631525631,lng:28.292612642329367},
+          content: gardenString
+          
+        }
+      ];
+
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          const infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            closeOtherInfo();
+            infoWindow.open(marker.get('map'), marker);
+            infoObj[0] = infoWindow;
+          });
+        }
+      }
+
+  //close other info windows
+      function closeOtherInfo(){
+        if (infoObj.length > 0) {
+
+        infoObj[0].set("marker", null);
+        infoObj[0].close();
+        infoObj[0].length = 0;
+        }
+       
+      }
+    }
+  </script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-EZbW3WKdrL3K2dW3mB8a8y7sWqulYyA&callback=initMap">
+    </script>
+
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/dragscroll.js"></script>
+<script src="assets/js/jquery.scrollbar.min.js"></script>
+<script src="assets/js/infobox.js"></script>
+<script src="assets/js/custom.js"></script>
+
+
+</body>
+</html>
