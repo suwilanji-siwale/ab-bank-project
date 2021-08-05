@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/AB-Bank-Favicon.png">
 
+    <!-- ChatBot -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.convform.css">
+    
+  
+
+
     <title>AB BANK - suwilanji submission</title> 
 
 </head>
@@ -321,7 +328,61 @@
     </script>
 
 
-<script src="assets/js/jquery-3.3.1.min.js"></script>
+
+
+   <!-- ChatBot -->
+<div class="chat_icon">
+  <i class="fa fa-comments" aria-hidden="true"></i>
+</div>
+
+<div class="chat_box">
+  <div class="my-conv-form-wrapper">
+    <form action="" method="GET" class="hidden">
+
+      <select data-conv-question="Hi! Please select the branch name" name="category">
+        <option value="cairo">Cairo</option>
+        <option value="chilenje">Chilenje</option>
+        <option value="matero">Matero</option>
+        <option value="kalingalinga">kalingalinga</option>
+     
+        
+      </select>
+
+      <div data-conv-fork="category">
+        <div data-conv-case="cairo">
+          <input type="text" name="domainName" data-conv-question="7393 Chainda Place Off Cairo Road, Town Center, Lusaka Telephone:+260 211 220836 or +260 211 220838">    
+        </div>
+         <div data-conv-case="matero">
+          <input type="text" name="domainName" data-conv-question="B and J Building after Post Office, Commonwealth Road, Matero, Lusaka" 
+    Telephone: +260 211 244647 or +260 211 244649>    
+        </div>
+        <div data-conv-case="chilenje">
+          <input type="text" name="domainName" data-conv-question="Base Building Chilenje Shopping Mall, Muramba Road, Chilenje South, Lusaka 
+    Telephone: +260 211 267706 or +260 211 267707">    
+        </div>
+        <div data-conv-case="kalingalinga">
+          <input type="text" name="domainName" data-conv-question="Alick Nkhata Road after Friday’s Corner, Kalingalinga, LusakaTelephone: +260 211 267988 or +260 211 267989 or +260 211 267990">    
+        </div>
+       
+      </div>
+
+      <input type="text" name="name" data-conv-question="Please, Enter your name">
+
+      <input type="text" data-conv-question="Hi {name}, <br> It's a pleasure to meet you." data-no-answer="true">
+
+      <input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?">
+
+      <select data-conv-question="Please Conform">
+        <option value="Yes">Conform</option>
+      </select>
+
+    </form>
+  </div>
+</div>
+<!-- ChatBot end -->
+
+
+
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/owl.carousel.min.js"></script>
@@ -329,6 +390,9 @@
 <script src="assets/js/jquery.scrollbar.min.js"></script>
 <script src="assets/js/infobox.js"></script>
 <script src="assets/js/custom.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.convform.js"></script>
+
+<script type="text/javascript" src="assets/js/customa.js"></script>
 
 
 </body>
